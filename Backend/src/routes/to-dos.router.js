@@ -105,13 +105,12 @@ TodosRouter.patch("/to-do/:id", async function (request, response) {
 
     await db.run(
       `UPDATE todos 
-       SET title = ?, description = ?, is_done = ?, status = ?
+       SET title = ?, description = ?, is_done = ?
        WHERE id = ?
     `,
       title || todoExists.title,
       description || todoExists.description,
       is_done !== undefined ? is_done : todoExists.is_done,
-      status !== undefined ? status : todoExists.status,
       id
     );
 
