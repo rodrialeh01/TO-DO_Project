@@ -31,6 +31,7 @@ function TodoList() {
   const addTodo = async (todo) => {
 
     if (!todo.text || /^\s*$/.test(todo.text)) {
+      alert("Please, write a task");
       return;
     }
     const temp = {
